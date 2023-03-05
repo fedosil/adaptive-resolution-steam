@@ -3,7 +3,7 @@ import re
 from collections import namedtuple
 from screeninfo import get_monitors
 
-STEAM_PATH = 'D:\\PROGRAMS\\STEAM'
+STEAM_PATH = '...' # Путь к папке Steam
 STEAM_APP = STEAM_PATH + '\\steam.exe'
 GAME_CONFIG = STEAM_PATH + '\\userdata\\143355847\\config\\localconfig.vdf'
 GAME_ID = '1046930'
@@ -21,7 +21,7 @@ def main():
         with open(GAME_CONFIG, 'r') as config:
             input_text = config.read()
 
-        pattern = r'("1046930"\s*\{[^()]+"LaunchOptions"\s+)"([^"]*)"'
+        pattern = r'("1046930"\s*{[^()]+"LaunchOptions"\s+)"([^"]*)"'
         match = re.search(pattern, input_text)
         if match:
             inner_pattern = r'-w\s(\d+)\s+-h\s(\d+)'
